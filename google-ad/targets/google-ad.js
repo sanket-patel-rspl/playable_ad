@@ -748,3 +748,19 @@ bytes:5142},{name:"buttons/InstallGoogle.png",bytes:4527},{name:"planes/aircraft
 bytes:2743},{name:"sounds/Explode.mp3__.js",bytes:3135},{name:"sounds/Hurt.mp3__.js",bytes:522}]},id:"com.2dkit.shmup",maxWidth:640,scaleMode:1,height:720,orientation:"portrait",build:"8mrlqgg3pps2zz",width:480}]}};la.$iP=0;la.$jP=0;K.$NQ=["webkit","moz","ms"];K.$OQ=function(a){a=nb.navigator.userAgent;return(new Wb("(iPhone|iPod|iPad)","")).match(a)?!0:"MacIntel"==nb.navigator.platform&&null!=nb.navigator.standalone?!0:!1}(this);K.$QQ=(new Wb("\\b(Trident|Edge)\\b","")).match(nb.navigator.userAgent);
 K.$RQ=function(a){a=nb.navigator.userAgent;return(new Wb("\\bMacintosh\\b","")).match(a)&&(new Wb("\\bSafari/","")).match(a)?(new Wb("\\bVersion/","")).match(a):!1}(this);K.$SQ=0<=nb.navigator.userAgent.indexOf("2DKSim");Qb.$DR=(new ic).$5L(1E6).$7L(function(a,b){return b.numberOfChannels*b.length});O.$NR=!0;$a.$UH=new fb;ab.ENTITY_SLOT=0;ab.PLAYER_SPEED=1E3;ab.BULLET_SPEED=500;ab.__creator={player:R.CClass(S),score:R.CClass(na),lib:R.CClass(hc)};Vb.__meta__={fields:{update:{SuppressWarnings:["null"]}}};
 Vb.$Ne=1E-5;J.radiansToDegrees=57.29577866666166;J.radDeg=J.radiansToDegrees;J.degreesToRadians=0.01745329277777778;J.degRad=J.degreesToRadians;Rh.main()})("undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this);
+
+
+// Assuming a global canvas and context are defined somewhere in the game setup
+function initializeAircraft() {
+    const canvas = document.getElementById("content");
+    if (canvas) {
+        // Adjust to center the aircraft on the canvas at game start
+        aircraft.x = canvas.width / 2;
+        aircraft.y = canvas.height / 2;
+    } else {
+        console.error("Canvas not found for initializing aircraft.");
+    }
+}
+
+// Call initializeAircraft when the game starts
+initializeAircraft();
