@@ -750,17 +750,16 @@ K.$RQ=function(a){a=nb.navigator.userAgent;return(new Wb("\\bMacintosh\\b","")).
 Vb.$Ne=1E-5;J.radiansToDegrees=57.29577866666166;J.radDeg=J.radiansToDegrees;J.degreesToRadians=0.01745329277777778;J.degRad=J.degreesToRadians;Rh.main()})("undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this);
 
 
-// Assuming a global canvas and context are defined somewhere in the game setup
-function initializeAircraft() {
-    const canvas = document.getElementById("content");
-    if (canvas) {
-        // Adjust to center the aircraft on the canvas at game start
-        aircraft.x = canvas.width / 2;
-        aircraft.y = canvas.height / 2;
+// Ensure player aircraft (aircraft_1e) appears in the center when the game starts
+function initializePlayerAircraft() {
+    const canvas = document.getElementById('content');
+    if (canvas && aircraft_1e) {
+        aircraft_1e.x = canvas.width / 2;
+        aircraft_1e.y = canvas.height / 2;
     } else {
-        console.error("Canvas not found for initializing aircraft.");
+        console.error("Canvas or aircraft_1e not found during initialization.");
     }
 }
 
-// Call initializeAircraft when the game starts
-initializeAircraft();
+// Call the function at game start
+initializePlayerAircraft();
