@@ -750,16 +750,29 @@ K.$RQ=function(a){a=nb.navigator.userAgent;return(new Wb("\\bMacintosh\\b","")).
 Vb.$Ne=1E-5;J.radiansToDegrees=57.29577866666166;J.radDeg=J.radiansToDegrees;J.degreesToRadians=0.01745329277777778;J.degRad=J.degreesToRadians;Rh.main()})("undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this);
 
 
-// Ensure player aircraft (aircraft_1e) appears in the center when the game starts
 function initializePlayerAircraft() {
     const canvas = document.getElementById('content');
     if (canvas && aircraft_1e) {
-        aircraft_1e.x = canvas.width / 2;
-        aircraft_1e.y = canvas.height / 2;
+        const context = canvas.getContext('2d');
+
+        // Ensure aircraft image is loaded
+        const aircraftImage = new Image();
+        aircraftImage.src = 'aircraft_1e.png'; // Update path if needed
+
+        aircraftImage.onload = function () {
+            // Set aircraft coordinates to center
+            const centerX = canvas.width / 2 - aircraftImage.width / 2;
+            const centerY = canvas.height / 2 - aircraftImage.height / 2;
+            aircraft_1e.x = centerX;
+            aircraft_1e.y = centerY;
+
+            // Draw the image on canvas
+            context.drawImage(aircraftImage, aircraft_1e.x, aircraft_1e.y);
+        };
     } else {
         console.error("Canvas or aircraft_1e not found during initialization.");
     }
 }
 
-// Call the function at game start
+// Call the initialization function
 initializePlayerAircraft();
